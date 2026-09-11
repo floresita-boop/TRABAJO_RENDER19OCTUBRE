@@ -1,0 +1,134 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evacuación CodeRider</title>
+    <link
+        rel="icon" href="{% static 'recursos/imagenes/sistemas/favicon.ico' %}"
+    />
+    <link rel="manifest" href="{% static 'recursos/pwa/manifest.json' %}" />
+    <link rel="stylesheet" href="{% static 'recursos/estilos/estilo.css' %}" />
+    <link
+        rel="stylesheet"
+        href="{% static 'recursos/libs/leaflet/leaflet.css' %}"
+    />
+</head>
+<body>
+    <header>
+        <h1>coderider aplicación</h1>
+    </header>
+
+    <main>
+        <section class="tarjeta">
+            <h2>🖼️ Imágenes</h2>
+
+            <img
+                src="{% static 'recursos/imagenes/fotos/atardecer.png' %}"
+                width="250"
+            />
+
+            <img
+                src="{% static 'recursos/imagenes/iconos/salida.svg' %}"
+                width="60"
+            />
+
+        </section>
+
+         <section class="tarjeta">
+    <h2> 🎬 Video coderider</h2>
+    <video width="100%" controls>
+        <source src="{% static 'recursos/videos/clips/SIMULACROS.mp4' %}" />
+        <track
+            src="{% static 'recursos/videos/subtitulos/subtitulos.vtt' %}"
+            kind="subtitles" srclang="es"
+        />
+    </video>
+</section>
+<section class="tarjeta">
+    <h2>🔊 Audio coderider 1</h2>
+    <audio controls>
+        <source
+            src="{% static 'recursos/audios/alertas/Dias Bonitos - MHA-BYL.mp3' %}"
+            type="audio/mp3"
+        />
+        Tu navegador no soporta audio.
+    </audio>
+    <h2>🔊 Audio coderider 2</h2>
+    <audio controls>
+        <source
+            src="{% static 'recursos/audios/alertas/Lady Gaga,Bruno Mars.mp3' %}"
+            type="audio/mp3"
+        />
+        Tu navegador no soporta audio.
+    </audio>
+    <h2>🔊 Audio coderider 2</h2>
+    <audio controls>
+        <source
+            src="{% static 'recursos/audios/alertas/Prisionero De Amor.mp3' %}"
+            type="audio/mp3"
+        />
+        Tu navegador no soporta audio.
+    </audio>
+
+
+</section>
+<section class="tarjeta">
+    <h2>📁 Documentos y datos coderider</h2>
+    <a
+        href="{% static 'recursos/documentos/pdf/plan_evacuacion.pdf' %}"
+        target="_blank"
+    >
+        📄 PDF coderider
+    </a>
+
+    <a
+        href="{% static 'recursos/documentos/comprimidos/kit_emergencia.zip' %}"
+        download
+    >
+        📦 ZIP coderider
+    </a>
+
+    <a
+        href="{% static 'recursos/datos/tablas/extintores.csv' %}"
+        download
+    >
+        📊 CSV coderider
+    </a>
+
+    <a
+        href="{% static 'recursos/datos/gps/ruta_evacuacion.gpx' %}"
+        download
+    >
+        📍 GPS coderider
+    </a>
+</section>
+<section class="tarjeta">
+    <h2>📷 Subir archivos coderider</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Enviar reporte</button>
+    </form>
+</section>
+
+
+<section class="tarjeta">
+    <h2>📂 Reportes recibidos coderider</h2>
+    {% for r in reportes %}
+    <div class="reporte">
+        <img src="{{ r.foto.url }}" width="150" />
+        <p><strong>{{ r.nombre }}</strong>: {{ r.descripcion }}</p>
+        <p>📅 {{ r.fecha|date:"d/m/Y H:i" }}</p>
+        {% if r.documento %}
+        <a href="{{ r.documento.url }}"> Ver documento</a>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>Aún no hay reportes.</p>
+    {% endfor %}
+</section>
+
+
+
+    </main>

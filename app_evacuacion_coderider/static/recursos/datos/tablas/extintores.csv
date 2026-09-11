@@ -1,0 +1,6 @@
+ID_Extintor,Ubicacion,Tipo,Capacidad_kg,Estado,Ultima_Inspeccion
+EXT-001,Bloque Administrativo - Piso 1,PQS (Polvo Químico Seco),10,Operativo,2026-01-15
+EXT-002,Bloque A - Pasillo Principal,CO2,5,Operativo,2026-02-10
+EXT-003,Laboratorio de Sistemas,PQS (Polvo Químico Seco),10,Revisión Pendiente,2025-11-20
+EXT-004,Cafetería - Zona Cocina,Solkaflam,3.7,Operativo,2026-03-01
+EXT-005,Auditorio Principal,CO2,5,Operativo,2026-01-30

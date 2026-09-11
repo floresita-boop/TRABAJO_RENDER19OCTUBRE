@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.606, 2.441]
+      },
+      "properties": {
+        "id": "PE-01",
+        "nombre": "Punto de Encuentro Principal",
+        "descripcion": "Zona abierta y segura libre de estructuras altas.",
+        "capacidad": "250 personas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.6075, 2.4423]
+      },
+      "properties": {
+        "id": "PE-02",
+        "nombre": "Punto de Encuentro Secundario",
+        "descripcion": "Área de reunión alternativa posterior al sismo.",
+        "capacidad": "120 personas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-76.6052, 2.4398],
+          [-76.6057, 2.4404],
+          [-76.606, 2.441]
+        ]
+      },
+      "properties": {
+        "id": "RE-01",
+        "nombre": "Ruta de Evacuación Bloque Administrativo",
+        "nivel_riesgo": "Medio",
+        "estado": "Habilitada"
+      }
+    }
+  ]
+}

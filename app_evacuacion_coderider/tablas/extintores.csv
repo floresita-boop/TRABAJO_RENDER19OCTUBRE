@@ -1,0 +1,5 @@
+id,nombre,tipo,ubicacion,estado
+1,Extintor Pasillo A,PQS,Bloque 1 - Piso 2,Activo
+2,Extintor Auditorio,CO2,Auditorio Principal,Activo
+3,Extintor Laboratorio,PQS,Zona de Sistemas,Revisión
+4,Extintor Cafetería,Solim,Zona Común,Activo
