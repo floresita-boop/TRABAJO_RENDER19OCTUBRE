@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q87v)ae(_up1@=d_50^+(^ao=vu-2sn$!4re8)jhy(5#rayaap'
+SECRET_KEY = 'django-insecure-d1hi42vtn^txgut2eu4-ec2$8%o4ce#1&ui54ri84q_07-jsx+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_evacuacion_coderider',
-    'app_transferencia',
+    'app_evacuacion_coderider'
+    
 ]
 
 MIDDLEWARE = [
@@ -57,6 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['app_evacuacion_coderider/templates/app_evacuacion_coderider'],
+        'DIRS':[BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +118,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS =[BASE_DIR/'static']
+STATIC_ROOT = BASE_DIR/'staticfiles'
+
+#archivos subidos por usuario
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'
 
 
 # Email
