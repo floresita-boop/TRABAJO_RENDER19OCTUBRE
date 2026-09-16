@@ -1,4 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="45" fill="green"></circle>
-    <path d="M30 50 L70 50 M55 35 L70 50 L55 65" stroke="white" stroke-width="8" fill="none"></path>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+
+    <!-- Fondo -->
+    <rect width="200" height="200" rx="25" fill="#dc2626"></rect>
+
+    <!-- Puerta -->
+    <rect x="65" y="55" width="70" height="110" rx="5" fill="#ffffff"></rect>
+
+    <!-- Persona -->
+    <circle cx="100" cy="82" r="10" fill="#dc2626"></circle>
+
+    <path d="M100 95 L100 125" stroke="#dc2626" stroke-width="8" stroke-linecap="round"></path>
+
+    <path d="M100 103 L82 115" stroke="#dc2626" stroke-width="8" stroke-linecap="round"></path>
+
+    <path d="M100 103 L118 115" stroke="#dc2626" stroke-width="8" stroke-linecap="round"></path>
+
+    <path d="M100 125 L85 145" stroke="#dc2626" stroke-width="8" stroke-linecap="round"></path>
+
+    <path d="M100 125 L115 145" stroke="#dc2626" stroke-width="8" stroke-linecap="round"></path>
+
+    <!-- Flecha de salida -->
+    <path d="M35 100 H75" stroke="#ffffff" stroke-width="10" stroke-linecap="round"></path>
+
+    <path d="M55 82 L35 100 L55 118" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+
 </svg>

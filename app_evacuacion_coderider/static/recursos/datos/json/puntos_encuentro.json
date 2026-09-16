@@ -1,24 +1,16 @@
 {
-  "proyecto": "app_evacuacion_coderider",
-  "descripcion": "Sistema de gestion de planes de emergencia y evacuacion en Django",
-  "modulos": [
+  "puntos": [
     {
-      "nombre": "recursos_estaticos",
-      "subcarpetas": [
-        "audios",
-        "datos",
-        "documentos",
-        "estilos",
-        "imagenes",
-        "libs",
-        "pwa",
-        "scripts",
-        "videos"
-      ]
+      "nombre": "Punto de Encuentro Principal",
+      "descripcion": "Zona abierta y segura libre de estructuras altas.",
+      "lat": 2.4410,
+      "lng": -76.6060
+    },
+    {
+      "nombre": "Punto de Encuentro Secundario",
+      "descripcion": "Área de reunión alternativa posterior al sismo.",
+      "lat": 2.4423,
+      "lng": -76.6075
     }
-  ],
-  "configuracion": {
-    "version": "1.0",
-    "estado": "en_desarrollo"
-  }
+  ]
 }

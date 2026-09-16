@@ -1,0 +1,779 @@
+/* =========================================================
+   CODERIDER - ESTILO.CSS
+   Diseño profesional para aplicación de evacuación
+   ========================================================= */
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BARRA DE NAVEGACIÓN
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.18);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-contenedor {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+
+    min-height: 72px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.nav-logo {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.nav-logo:hover {
+    color: #93c5fd;
+    transform: scale(1.03);
+}
+
+.nav-menu {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-enlace {
+    display: block;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 11px 16px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.3s,
+        transform 0.3s;
+}
+
+.nav-enlace:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.nav-enlace.activo {
+    background: #2563eb;
+
+    box-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+header {
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8 0%,
+            #2563eb 50%,
+            #0284c7 100%
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 65px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    top: -150px;
+    left: -100px;
+}
+
+header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+
+    bottom: -200px;
+    right: -100px;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+
+    font-size: 42px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+main {
+    width: 92%;
+    max-width: 1250px;
+
+    margin: 40px auto;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.tarjeta {
+    background: #ffffff;
+
+    padding: 28px;
+
+    margin-bottom: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.07);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.10);
+}
+
+.tarjeta h2 {
+    color: #1e3a8a;
+
+    font-size: 24px;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 13px;
+
+    border-bottom: 2px solid #e2e8f0;
+}
+
+
+/* =========================================================
+   IMÁGENES
+   ========================================================= */
+
+.tarjeta img {
+    max-width: 100%;
+
+    margin: 10px;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.tarjeta img:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+video {
+    width: 100%;
+
+    display: block;
+
+    background: #020617;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+audio {
+    width: 100%;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   DOCUMENTOS
+   ========================================================= */
+
+.tarjeta > a {
+    display: block;
+
+    width: fit-content;
+
+    margin: 12px 0;
+
+    padding: 13px 18px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    text-decoration: none;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.tarjeta > a:hover {
+    background: #dbeafe;
+
+    color: #1e40af;
+
+    transform: translateX(5px);
+
+    box-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+form p {
+    margin-bottom: 5px;
+}
+
+form label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #334155;
+
+    font-weight: 700;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    color: #1e293b;
+
+    outline: none;
+
+    transition:
+        border 0.3s,
+        box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    background: #ffffff;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+form button {
+    width: fit-content;
+
+    padding: 13px 25px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, 0.25);
+
+    transition: 0.3s;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+
+/* =========================================================
+   REPORTES
+   ========================================================= */
+
+.reporte {
+    background: #f8fafc;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-left: 5px solid #2563eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.reporte img {
+    max-width: 150px;
+
+    margin: 0 0 12px 0;
+
+    border-radius: 10px;
+}
+
+.reporte p {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   MAPA
+   ========================================================= */
+
+#mapa {
+    width: 100%;
+
+    height: 500px;
+
+    margin-top: 20px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 2px solid #cbd5e1;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================================================
+   BOTONERA DEL MAPA
+   ========================================================= */
+
+.botonera {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.btn-mapa {
+    border: none;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-mapa:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.18);
+}
+
+.btn-verde {
+    background: #16a34a;
+}
+
+.btn-verde:hover {
+    background: #15803d;
+}
+
+.btn-azul {
+    background: #2563eb;
+}
+
+.btn-azul:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   PUNTOS DE ENCUENTRO
+   ========================================================= */
+
+#info-institucion {
+    padding: 13px 16px;
+
+    margin-bottom: 15px;
+
+    background: #eff6ff;
+
+    color: #1e40af;
+
+    border-left: 4px solid #2563eb;
+
+    border-radius: 8px;
+}
+
+.lista-puntos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+.punto-encuentro {
+    background: #f8fafc;
+
+    padding: 20px;
+
+    border-left: 5px solid #2563eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.punto-encuentro h3 {
+    color: #1e3a8a;
+
+    margin-bottom: 8px;
+}
+
+.punto-encuentro p {
+    color: #475569;
+
+    margin-bottom: 12px;
+}
+
+.punto-encuentro button {
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.punto-encuentro button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLA CSV
+   ========================================================= */
+
+.tabla-seccion {
+    overflow-x: auto;
+}
+
+.tabla-csv {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.tabla-csv th {
+    background: #1e3a8a;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+}
+
+.tabla-csv td {
+    padding: 12px;
+
+    border: 1px solid #e2e8f0;
+}
+
+.tabla-csv tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.tabla-csv tr:hover {
+    background: #eff6ff;
+}
+
+
+/* =========================================================
+   LEAFLET
+   ========================================================= */
+
+.leaflet-popup-content {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+.leaflet-popup-content strong {
+    color: #1e3a8a;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .nav-contenedor {
+        flex-direction: column;
+
+        padding: 15px 0;
+
+        gap: 12px;
+    }
+
+    .nav-menu {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .nav-enlace {
+        text-align: center;
+    }
+
+    header {
+        padding: 45px 15px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .tarjeta {
+        padding: 20px;
+    }
+
+    #mapa {
+        height: 420px;
+    }
+
+    .botonera {
+        flex-direction: column;
+    }
+
+    .btn-mapa {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .tarjeta {
+        padding: 16px;
+    }
+
+    .tarjeta h2 {
+        font-size: 20px;
+    }
+
+    #mapa {
+        height: 350px;
+    }
+
+}

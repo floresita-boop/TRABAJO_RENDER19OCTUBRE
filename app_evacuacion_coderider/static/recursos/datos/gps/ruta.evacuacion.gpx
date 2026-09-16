@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Generador de Rutas - Sistema de Emergencia" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Ruta de Evacuación Principal</name>
+    <desc>Ruta segura hacia el punto de encuentro en caso de emergencia.</desc>
+    <time>2026-09-16T14:00:00Z</time>
+  </metadata>
+
+  <!-- Puntos clave (Waypoints) -->
+  <wpt lat="2.444800" lon="-76.604700">
+    <name>Inicio / Zona de Riesgo</name>
+    <desc>Punto de partida o zona de afectación inicial.</desc>
+    <sym>Danger</sym>
+  </wpt>
+  
+  <wpt lat="2.446200" lon="-76.606100">
+    <name>Punto de Giro - Esquina Crítica</name>
+    <desc>Girar a la derecha siguiendo la señalización verde.</desc>
+    <sym>Waypoint</sym>
+  </wpt>
+
+  <wpt lat="2.448000" lon="-76.608000">
+    <name>Punto de Encuentro Seguro</name>
+    <desc>Zona segura final, área abierta y libre de obstáculos.</desc>
+    <sym>Flag, Red</sym>
+  </wpt>
+
+  <!-- Trazado de la ruta (Track) -->
+  <trk>
+    <name>Trayecto de Evacuación</name>
+    <trkseg>
+      <trkpt lat="2.444800" lon="-76.604700">
+        <time>2026-09-16T14:00:00Z</time>
+      </trkpt>
+      <trkpt lat="2.445300" lon="-76.605200">
+        <time>2026-09-16T14:02:00Z</time>
+      </trkpt>
+      <trkpt lat="2.446200" lon="-76.606100">
+        <time>2026-09-16T14:04:30Z</time>
+      </trkpt>
+      <trkpt lat="2.447100" lon="-76.607000">
+        <time>2026-09-16T14:07:00Z</time>
+      </trkpt>
+      <trkpt lat="2.448000" lon="-76.608000">
+        <time>2026-09-16T14:10:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
