@@ -1,0 +1,8 @@
+﻿v_evacuacion_coderider/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+staticfiles/
+.env
+*.log

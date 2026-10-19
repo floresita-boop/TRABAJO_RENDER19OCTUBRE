@@ -14,7 +14,7 @@ def evacuacion(request):
     # Esto se ejecuta tanto en el GET inicial como si el POST falla (para mostrar errores)
     reportes = Reporte.objects.all()
     
-    return render(request, 'app_evacuacion_coderider/evacuacion.html', {
+    return render(request, 'app_evacuacion_coderider/render.html', {
         'form': form,
         'reportes': reportes,
     })

@@ -1,0 +1,298 @@
+
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evacuación Render</title>
+
+    <link rel="icon" href="{% static 'recursos/imagenes/sistemas/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'recursos/pwa/manifest.json' %}">
+    <link rel="stylesheet" href="{% static 'recursos/estilos/estilos.css' %}">
+
+    <!-- Leaflet CSS Oficial -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+
+    <!-- Estilos de la calculadora -->
+    <style>
+        .calculadora-card {
+            font-family: Arial, sans-serif;
+            background: #1e293b;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .calculadora-card input,
+        .calculadora-card button {
+            padding: 10px;
+            margin: 10px 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .calculadora-card input {
+            max-width: 90%;
+        }
+
+        .calculadora-card button {
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+        }
+
+        .calculadora-card button:hover {
+            background: #2563eb;
+        }
+
+        .calculadora-card #resultado {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-contenedor">
+        <a href="{% url 'evacuacion' %}" class="nav-logo">Render</a>
+
+        <ul class="nav-menu">
+            <li>
+                <a href="{% url 'evacuacion' %}" class="nav-enlace activo">
+                    📍 Generalidades Render
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'evacuacion' %}" class="nav-enlace">
+                    🏠 Panel Render
+                </a>
+            </li>
+            <li>
+                <a href="#calculadora" class="nav-enlace">
+                    🧮 Calculadora
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header>
+    <h1>Render aplicación</h1>
+</header>
+
+<main>
+
+    <!-- IMÁGENES -->
+    <section class="tarjeta">
+        <h2>🖼️ Imágenes</h2>
+
+        <img src="{% static 'recursos/imagenes/fotos/atardecer.png' %}"
+             width="250" alt="Atardecer">
+
+        <img src="{% static 'recursos/imagenes/fotos/iconos/salida.svg' %}"
+             width="60" alt="Salida de emergencia">
+    </section>
+
+    <!-- VIDEO -->
+    <section class="tarjeta">
+        <h2>🎬 Video Render</h2>
+
+        <video width="100%" controls>
+            <source src="{% static 'recursos/videos/clips/SIMULACROS.mp4' %}"
+                    type="video/mp4">
+
+            <track src="{% static 'recursos/videos/subtitulos/subtitulos.vtt' %}"
+                   kind="subtitles" srclang="es" label="Español">
+
+            Tu navegador no soporta video.
+        </video>
+    </section>
+
+    <!-- AUDIOS -->
+    <section class="tarjeta">
+        <h2>🔊 Audio Render 1</h2>
+
+        <audio controls>
+            <source src="{% static 'recursos/audios/alertas/MensajeEvacuacion.mp3' %}"
+                    type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+
+        <h2>🔊 Audio Render 2</h2>
+
+        <audio controls>
+            <source src="{% static 'recursos/audios/alertas/BrunoMars.mp3' %}"
+                    type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+
+        <h2>🔊 Audio Render 3</h2>
+
+        <audio controls>
+            <source src="{% static 'recursos/audios/alertas/Prisionero De Amor.mp3' %}"
+                    type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+    </section>
+
+    <!-- DOCUMENTOS -->
+    <section class="tarjeta">
+        <h2>📁 Documentos y datos Render</h2>
+
+        <a href="{% static 'recursos/documentos/pdf/plan_evacuacion.pdf' %}"
+           target="_blank" rel="noopener noreferrer">📄 PDF Render</a>
+
+        <a href="{% static 'recursos/documentos/comprimidos/kit_emergencia.zip' %}"
+           download>📦 ZIP Render</a>
+
+        <a href="{% static 'recursos/datos/tablas/extintores.csv' %}"
+           download>📊 CSV Render</a>
+
+        <a href="{% static 'recursos/datos/gps/ruta_evacuacion.gpx' %}"
+           download>📍 GPS Render</a>
+    </section>
+
+    <!-- CALCULADORA SUMA Y RESTA -->
+    <section class="tarjeta" id="calculadora">
+        <h2>🧮 Calculadora (Suma y Resta)</h2>
+
+        <div class="calculadora-card">
+            <input type="number" id="num1" placeholder="Número 1">
+            <br>
+
+            <input type="number" id="num2" placeholder="Número 2">
+            <br>
+
+            <button type="button" onclick="sumar()">Sumar (+)</button>
+            <button type="button" onclick="restarButton()">Restar (-)</button>
+
+            <div id="resultado">Resultado: 0</div>
+        </div>
+    </section>
+
+    <!-- SUBIR ARCHIVOS -->
+    <section class="tarjeta">
+        <h2>📷 Subir archivos Render</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Enviar reporte</button>
+        </form>
+    </section>
+
+    <!-- REPORTES -->
+    <section class="tarjeta">
+        <h2>📂 Reportes recibidos Render</h2>
+
+        {% for r in reportes %}
+            <div class="reporte">
+
+                {% if r.foto %}
+                    <img src="{{ r.foto.url }}"
+                         width="150" alt="Foto del reporte">
+                {% endif %}
+
+                <p>
+                    <strong>{{ r.nombre }}</strong>: {{ r.descripcion }}
+                </p>
+
+                <p>📅 {{ r.fecha|date:"d/m/Y H:i" }}</p>
+
+                {% if r.documento %}
+                    <a href="{{ r.documento.url }}"
+                       target="_blank" rel="noopener noreferrer">
+                        Ver documento
+                    </a>
+                {% endif %}
+
+            </div>
+        {% empty %}
+            <p>Aún no hay reportes.</p>
+        {% endfor %}
+    </section>
+
+    <!-- MAPA Y GEOLOCALIZACIÓN -->
+    <section class="tarjeta">
+        <h2>🗺️ Mapa de ruta + geolocalizacion Render</h2>
+
+        <div class="botonera">
+            <button id="btn-ruta" class="btn-mapa btn-verde">
+                🔴 Mostrar ruta + geolocalizacion Render
+            </button>
+        </div>
+
+        <div id="mapa"></div>
+    </section>
+
+    <!-- PUNTOS EN MAPA -->
+    <section class="tarjeta">
+        <h2>📍 Puntos en mapa Render</h2>
+
+        <p id="info-institucion"></p>
+
+        <div class="botonera">
+            <button id="btn-puntos" class="btn-mapa btn-azul">
+                ⚫ Mostrar puntos de encuentro
+            </button>
+        </div>
+
+        <div id="lista-puntos" class="lista-puntos"></div>
+    </section>
+
+</main>
+
+<!-- FUNCIONES DE LA CALCULADORA -->
+<script>
+    function sumar() {
+        let n1 = parseFloat(document.getElementById('num1').value) || 0;
+        let n2 = parseFloat(document.getElementById('num2').value) || 0;
+        let res = n1 + n2;
+
+        document.getElementById('resultado').innerText = "Resultado: " + res;
+    }
+
+    function restarButton() {
+        let n1 = parseFloat(document.getElementById('num1').value) || 0;
+        let n2 = parseFloat(document.getElementById('num2').value) || 0;
+        let res = n1 - n2;
+
+        document.getElementById('resultado').innerText = "Resultado: " + res;
+    }
+</script>
+
+<!-- VARIABLES PARA LOS SCRIPTS -->
+<script>
+    const CSRF_TOKEN = "{{ csrf_token }}";
+    const URL_CSV = "{% static 'recursos/datos/tablas/extintores.csv' %}";
+    const URL_GEO = "{% static 'recursos/geo/ruta.geojson' %}";
+    const URL_JSON = "{% static 'recursos/datos/json/puntos_encuentro.json' %}";
+    const URL_API_SISMOS = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson";
+</script>
+
+<!-- LEAFLET JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<!-- SCRIPTS PERSONALIZADOS -->
+<script src="{% static 'recursos/scripts/tabla_csv.js' %}"></script>
+<script src="{% static 'recursos/scripts/puntos_encuentro.js' %}"></script>
+<script src="{% static 'recursos/scripts/mapa.js' %}"></script>
+<script src="{% static 'recursos/scripts/sismos_api.js' %}"></script>
+
+</body>
+</html>
