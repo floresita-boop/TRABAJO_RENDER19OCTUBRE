@@ -2,7 +2,10 @@
 import os
 from pathlib import Path
 
-# Ruta principal del proyecto
+# ==========================================================
+# RUTA PRINCIPAL DEL PROYECTO
+# ==========================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -11,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ==========================================================
 
 # En Render configura DJANGO_SECRET_KEY como variable de entorno.
-# En local se utiliza una clave de desarrollo.
+# En local se utiliza una clave exclusiva para desarrollo.
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY',
     'django-insecure-clave-solo-para-desarrollo-local'
@@ -20,12 +23,12 @@ SECRET_KEY = os.environ.get(
 # En local DEBUG=True; en Render configura DEBUG=False.
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
-# Dominios permitidos.
+# Dominios permitidos, incluido el dominio de Render.
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(
         'ALLOWED_HOSTS',
-        'localhost,127.0.0.1'
+        'localhost,127.0.0.1,trabajo-render19octubre.onrender.com'
     ).split(',')
     if host.strip()
 ]
@@ -35,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
         'CSRF_TRUSTED_ORIGINS',
-        ''
+        'https://trabajo-render19octubre.onrender.com'
     ).split(',')
     if origin.strip()
 ]
@@ -143,6 +146,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': (
             'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
+    },
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
             'NumericPasswordValidator'
         ),
     },
@@ -163,17 +172,19 @@ USE_TZ = True
 
 
 # ==========================================================
-# ARCHIVOS ESTÁTICOS: CSS, JS, IMÁGENES, PDF, AUDIO Y VIDEO
+# ARCHIVOS ESTÁTICOS
 # ==========================================================
 
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise sirve los archivos estáticos en producción.
+# WhiteNoise sirve CSS, JavaScript e imágenes estáticas.
 STORAGES = {
     'default': {
-        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+        'BACKEND': (
+            'django.core.files.storage.FileSystemStorage'
+        ),
     },
     'staticfiles': {
         'BACKEND': (
